@@ -13,8 +13,6 @@ extension View {
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View where Content : View {
-        Text("")
+        Container(isPresented: isPresented, content: content(), presenting: self, onDismiss: onDismiss)
     }
-    
-//    public func sheet<Content>(isPresented: Binding<Bool>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping () -> Content) -> some View where Content : View
 }
