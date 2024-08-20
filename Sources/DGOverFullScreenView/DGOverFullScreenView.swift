@@ -25,12 +25,15 @@ struct Container: View {
     }
     
     var body: some View {
-        presenting
-            .overlay {
-                GeometryReader { geometry in
+        ZStack {
+            presenting
+            
+            GeometryReader { geometry in
+                ZStack {
+                    Color.clear
+                    
                     if isPresented {
                         content
-                            .ignoresSafeArea()
                             .offset(y: yOffset)
                             .gesture(
                                 DragGesture()
@@ -61,6 +64,9 @@ struct Container: View {
                             .animation(.linear, value: yOffset)
                     }
                 }
+                .ignoresSafeArea()
             }
+        }
+            
     }
 }

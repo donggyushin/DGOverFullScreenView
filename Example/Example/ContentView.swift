@@ -13,8 +13,9 @@ struct ContentView: View {
     @State private var isPresenting: Bool = false
     
     var body: some View {
-        ZStack {
-            Color.purple
+        VStack {
+            
+            Text("Parent View")
             
             Button("Show") {
                 withAnimation {
